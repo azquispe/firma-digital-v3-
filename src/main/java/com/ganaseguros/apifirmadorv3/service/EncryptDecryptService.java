@@ -16,7 +16,7 @@ public class EncryptDecryptService implements IEncryptDecryptService {
 
 
     // de momento este metodo "encryptMessage" no se usa, ya que el front con la llave publica lo cifra
-    /*@Override
+    @Override
     public ResponseDto encryptMessage(String plainText) {
         ResponseDto response = new ResponseDto();
         try {
@@ -34,7 +34,7 @@ public class EncryptDecryptService implements IEncryptDecryptService {
             response.setMensaje(ConstDiccionarioMensajeFirma.COD2000_MENSAJE);
         }
         return response;
-    }*/
+    }
 
     @Override
     public ResponseDto decryptMessage(String encryptedMessgae) {

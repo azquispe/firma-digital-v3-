@@ -71,7 +71,7 @@ public class FirmarPdf implements Firmar {
     }
 
     @Override
-    public synchronized void firmar(InputStream is, OutputStream os, boolean bloquear) throws IOException, GeneralSecurityException {
+    public synchronized void firmar(InputStream is, OutputStream os, boolean bloquear,Token token) throws IOException, GeneralSecurityException {
         PdfReader reader = new PdfReader(is);
         StampingProperties stamp = new StampingProperties();
         stamp.useAppendMode();
@@ -90,23 +90,24 @@ public class FirmarPdf implements Firmar {
         appearance.setPageRect(rect);
 
         IExternalDigest digest = new BouncyCastleDigest();
-        Token token;
+        /*Token token;
         if (path == null) {
             token = new TokenHsmCloud(jwt);
         } else {
             token = new TokenPKCS12(path);
         }
-        token.iniciar(pass);
+        token.iniciar(pass);*/
         IExternalSignature signature = new ExternalSignatureLocal(token.obtenerClavePrivada(label), token.getProviderName());
+        //IExternalSignature signature = null; // para generar error 2007
         signer.signDetached(digest, signature, token.getCertificateChain(label), null, null, null, 0, PdfSigner.CryptoStandard.CADES);
         token.salir();
         
     }
 
-    @Override
+    /*@Override
     public synchronized void firmar(InputStream is, OutputStream os) throws IOException, GeneralSecurityException {
         firmar(is, os, false);
-    }
+    }*/
 
     public static synchronized void firmar(InputStream is, OutputStream os, boolean bloquear, Token token, String label) throws IOException, GeneralSecurityException {
         PdfReader reader = new PdfReader(is);

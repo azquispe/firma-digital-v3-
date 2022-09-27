@@ -5,6 +5,8 @@
  */
 package com.ganaseguros.firmar;
 
+import com.ganaseguros.token.Token;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -15,6 +17,6 @@ import java.security.GeneralSecurityException;
  * @author ADSIB
  */
 public interface Firmar {
-    public void firmar(InputStream is, OutputStream os, boolean param) throws IOException, GeneralSecurityException;
-    public void firmar(InputStream is, OutputStream os) throws IOException, GeneralSecurityException;
+    public void firmar(InputStream is, OutputStream os, boolean param, Token token) throws IOException, GeneralSecurityException;
+    //public void firmar(InputStream is, OutputStream os) throws IOException, GeneralSecurityException;
 }

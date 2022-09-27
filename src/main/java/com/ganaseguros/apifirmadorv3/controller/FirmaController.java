@@ -3,6 +3,7 @@ package com.ganaseguros.apifirmadorv3.controller;
 import com.ganaseguros.apifirmadorv3.dto.PdfBase64Dto;
 import com.ganaseguros.apifirmadorv3.dto.RequestFirmarDto;
 import com.ganaseguros.apifirmadorv3.dto.ResponseDto;
+import com.ganaseguros.apifirmadorv3.dto.UsuariosFirmantesDto;
 import com.ganaseguros.apifirmadorv3.service.IFirmaService;
 import com.ganaseguros.apifirmadorv3.util.constantes.ConstDiccionarioMensajeFirma;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,17 @@ public class FirmaController {
         response.put("codigoMensaje", result.getCodigo());
         response.put("mensaje", result.getMensaje());
         response.put("firmas", result.getElementoGenerico());
+        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+    }
+
+    @PostMapping("/v1/obtiene-informacion-certificado")
+    public ResponseEntity<?> obtieneInformacionCertificado(@RequestBody UsuariosFirmantesDto usuariosFirmantesDto) {
+
+        Map<String, Object> response = new HashMap<>();
+        ResponseDto result = iFirmaService.obtieneInformacionCertificado(usuariosFirmantesDto);
+        response.put("codigoMensaje", result.getCodigo());
+        response.put("mensaje", result.getMensaje());
+        response.put("data_token", result.getElementoGenerico());
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
 }

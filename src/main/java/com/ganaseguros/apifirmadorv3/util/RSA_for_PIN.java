@@ -1,4 +1,4 @@
-package com.ganaseguros.apifirmadorv3.security;
+package com.ganaseguros.apifirmadorv3.util;
 
 public class RSA_for_PIN {
     public static final String RSA_PRIVATE="-----BEGIN PRIVATE KEY-----\n" +
@@ -28,12 +28,12 @@ public class RSA_for_PIN {
 
 
     // esta lllave publica debe usar la app de escritorio el cual cifra el PIN
-    /*public static final String RSA_PUBLIC="-----BEGIN PUBLIC KEY-----\n" +
+    public static final String RSA_PUBLIC="-----BEGIN PUBLIC KEY-----\n" +
             "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApthi9IcpTL4TrhKplQNcYzKQmcWfKUg3\n" +
             "LS1smL6LjfVO0uXlmNaroYLTI9jhqJ8UU962bCzUH752p7N6i38r1ocwjsFwZucvxOvyLa5afVI4\n" +
             "hp98QXvaT6OkkOGh0FwAJMh/eXhgSzz4DJwRwx0Hs6UbFYo2Zrl36YsW7a/8SkamLgiJirK7hiLm\n" +
             "4M7yY3KOuiQ6HJXAJ319DsSnJ4okyOS2+r09UGriCrKlWfsOdsFx+P3Z5aan176IpHVdWYioDQOA\n" +
             "PK4jVcmHAbxjQ1QQKyCzeOr3XrSyD4MTbwsHRZ2gbAH4SXB4/9pbMY1oINP5LQTCrlzZGAXOOT8J\n" +
             "lDrb5wIDAQAB\n" +
-            "-----END PUBLIC KEY-----";*/
+            "-----END PUBLIC KEY-----";
 }
