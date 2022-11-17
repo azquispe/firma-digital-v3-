@@ -25,7 +25,7 @@ public class FirmaController {
 
     @PostMapping("/v1/firmar")
     public ResponseEntity<?> firmar(@RequestBody RequestFirmarDto requestFirmarDto) {
-
+        // SUBIDA DE HOY 17/11/2022
         Map<String, Object> response = new HashMap<>();
         ResponseDto result = iFirmaService.firmar(requestFirmarDto);
         response.put("codigoMensaje", result.getCodigo());
